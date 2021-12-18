@@ -172,6 +172,7 @@ abstract class BaseDotsIndicator @JvmOverloads constructor(context: Context,
     for (i in 0 until pager!!.currentItem) {
       dots[i].setWidth(dotsSize.toInt())
     }
+    requestLayout()
   }
 
   // ABSTRACT METHODS AND FIELDS
@@ -322,10 +323,8 @@ abstract class BaseDotsIndicator @JvmOverloads constructor(context: Context,
   // EXTENSIONS
 
   fun View.setWidth(width: Int) {
-    layoutParams.apply {
-      this.width = width
-      requestLayout()
-    }
+    layoutParams.width = width
+    requestLayout()
   }
 
   fun <T> ArrayList<T>.isInBounds(index: Int) = index in 0 until size
